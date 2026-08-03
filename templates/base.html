@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+    <title>ML Student Placement Prediction </title>
+</head>
+
+
+<body>
+<div class="wrapper">
+   <!-- Left Menu -->
+    <aside class="sidebar">
+
+        <h2>ML PipeLine </h2>
+
+        <a href="{{ url_for('home') }}">
+            <i class="bi bi-house"></i>
+            HOME
+        </a>
+       <br>
+        <a href="{{ url_for('upload') }}">
+            <i class="bi bi-house"></i>
+            Upload Data
+        </a>
+    </aside>
+
+
+
+   <!-- right Menu -->
+
+
+    <main class="content">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+</div>
+
+</body>
+</html>
