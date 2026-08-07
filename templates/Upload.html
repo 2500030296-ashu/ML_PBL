@@ -1,17 +1,15 @@
-{% extends "base.html" %}
+{%extends 'base.html'%}
 
-{% block title %}
-Upload Dataset
-{% endblock %}
+{%block title%}
 
-{% block content %}
-
-<h2>Upload Dataset</h2>
-
-<form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
-    <input type="file" name="dataset" required>
-    <button type="submit">Upload</button>
+UPLOAD
+{%endblock%}
+{%block content%}
+<label>
+    UPLOAD FILE
+</label>
+ <form method="POST" enctype="multipart/form-data">
+     <input type="file" name="dataset" required>
+     <button #class="btn btn-success">Upload Dataset</button>
 </form>
-
-
-{% endblock %}
+{%endblock%}

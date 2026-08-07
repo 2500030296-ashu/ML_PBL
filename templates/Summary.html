@@ -1,13 +1,209 @@
 {% extends "base.html" %}
 
 {% block title %}
-Summary
+Dataset Summary
 {% endblock %}
 
 {% block content %}
 
-<h2>Dataset Uploaded Successfully!</h2>
+<style>
 
-Your dataset has been uploaded successfully.
+.container{
+    width:100%;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0px 0px 10px gray;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+}
+
+table,th,td{
+    border:2px solid #ccc;
+}
+
+th{
+    background:#007BFF;
+    color:white;
+    padding:10px;
+}
+
+td{
+    padding:10px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+pre{
+    background:#efefef;
+    padding:15px;
+}
+
+</style>
+
+<div class="container">
+
+<h1>Student Placement Prediction</h1>
+
+<h2>Dataset Summary</h2>
+
+<p><b>File Name:</b> {{ filename }}</p>
+<p><b>Total Rows:</b> {{ rows }}</p>
+<p><b>Total Columns:</b> {{ columns }}</p>
+
+<hr>
+
+<h2>Column Names</h2>
+
+<ul>
+
+{% for col in column_names %}
+
+<li>{{ col }}</li>
+
+{% endfor %}
+
+</ul>
+
+<hr>
+
+<h2>First 10 Records (df.head())</h2>
+
+<table>
+
+<tr>
+
+{% for col in column_names %}
+<th>{{ col }}</th>
+{% endfor %}
+
+</tr>
+
+{% for row in head_data %}
+
+<tr>
+
+{% for value in row %}
+<td>{{ value }}</td>
+{% endfor %}
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<hr>
+
+<h2>Last 10 Records (df.tail())</h2>
+
+<table>
+
+<tr>
+
+{% for col in column_names %}
+<th>{{ col }}</th>
+{% endfor %}
+
+</tr>
+
+{% for row in tail_data %}
+
+<tr>
+
+{% for value in row %}
+<td>{{ value }}</td>
+{% endfor %}
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<hr>
+
+<h2>Missing Values (df.isnull().sum())</h2>
+
+<table>
+
+<tr>
+
+<th>Column</th>
+<th>Missing Values</th>
+
+</tr>
+
+{% for col,value in missing_values.items() %}
+
+<tr>
+
+<td>{{ col }}</td>
+<td>{{ value }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<hr>
+
+<h2>Dataset Info (df.info())</h2>
+
+<pre>{{ info }}</pre>
+
+<hr>
+
+<h2>Statistical Summary (df.describe())</h2>
+
+{{ description|safe }}
+
+<hr>
+
+<h2>Numeric Columns</h2>
+
+<ul>
+
+{% for col in numeric_cols %}
+
+<li>{{ col }}</li>
+
+{% endfor %}
+
+</ul>
+
+<hr>
+
+<h2>Categorical Columns</h2>
+
+<ul>
+
+{% for col in categorical_cols %}
+
+<li>{{ col }}</li>
+
+{% endfor %}
+
+</ul>
+
+<br>
+
+<a href="{{ url_for('upload') }}" class="btn btn-primary">
+Upload Another Dataset
+</a>
+    <a href="{{ url_for('visualization') }}">
+    <button>Visualize Dataset</button>
+</a>
+
+</div>
 
 {% endblock %}

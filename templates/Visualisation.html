@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+Visualization
+{% endblock %}
+
+{% block content %}
+<h2>Visualization</h2>
+
+<h2>Bar Graph</h2>
+
+<img src="data:image/png;base64, {{ bar_graph }}" alt="Dynamic Matplotlib Graph ">
+<br>
+<h2>Histogram</h2>
+<img src="data:image/png;base64, {{ hist_graph }}" alt="Graph ">
+<br>
+
+{% endblock %}

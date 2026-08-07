@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+Visualization
+{% endblock %}
+
+{% block content %}
+
+<h1>Visualization</h1>
+
+<h2>Branch Graph</h2>
+
+<img src="data:image/png;base64,{{ bar_graph }}" width="700">
+
+<br><br>
+
+<h2>Age Histogram</h2>
+
+<img src="data:image/png;base64,{{ hist_graph }}" width="700">
+
+{% endblock %}
