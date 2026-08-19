@@ -1,46 +1,71 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Student Placement Prediction{% endblock %}</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
-
-    <title>{% block title %}Student Placement Prediction{% endblock %}</title>
 </head>
 
 <body>
 
-<div class="wrapper">
-
     <aside class="sidebar">
 
-        <h2>ML Pipeline</h2>
+        <div class="logo">
+            <div class="logo-icon">ML</div>
+            <div>
+                <h2>Placement</h2>
+                <span>Prediction System</span>
+            </div>
+        </div>
 
-        <a href="{{ url_for('home') }}">
-            Home
-        </a>
+        <div class="menu-title">ML PIPELINE</div>
 
-        <br><br>
+        <nav>
+            <a href="{{ url_for('home') }}" class="nav-link">
+                <span>⌂</span>
+                <span>Home</span>
+            </a>
 
-        <a href="{{ url_for('upload') }}">
-            Upload Data
-        </a>
+            <a href="{{ url_for('upload') }}" class="nav-link">
+                <span>↑</span>
+                <span>Upload Data</span>
+            </a>
 
-        <br><br>
+            <a href="{{ url_for('visualization') }}" class="nav-link">
+                <span>▥</span>
+                <span>Visualize Data</span>
+            </a>
+        </nav>
 
-        <a href="{{ url_for('visualization') }}">
-            Visualize Data
-        </a>
+        <div class="sidebar-bottom">
+            <p>Machine Learning</p>
+            <small>Student Placement Analytics</small>
+        </div>
 
     </aside>
 
-    <main class="content">
-        {% block content %}
-        {% endblock %}
-    </main>
 
-</div>
+    <main class="content">
+
+        <header class="topbar">
+            <div>
+                <h1>{% block page_title %}Student Placement Prediction{% endblock %}</h1>
+                <p>Machine Learning Analytics Dashboard</p>
+            </div>
+
+            
+        </header>
+
+        <section class="page-content">
+            {% block content %}
+            {% endblock %}
+        </section>
+
+    </main>
 
 </body>
 </html>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dataset Summary
+{% endblock %}
+
+{% block content %}
+
+{% if not column_list  %
+< div class = "alert alert-warning"> No categorical columns remain in this dataset
+{% endif %}
+
+<form method="POST"
